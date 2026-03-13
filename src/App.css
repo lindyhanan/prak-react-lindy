@@ -1,0 +1,86 @@
+/* Reset dasar agar tampilan rapi di semua browser */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fafafa;
+  color: #262626;
+}
+
+/* Navigasi */
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 935px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif; /* Mirip logo IG */
+}
+
+/* Kontainer Utama Feed */
+.feed-container {
+  max-width: 470px; /* Ukuran standar post Instagram */
+  margin: 20px auto;
+}
+
+/* Kartu Postingan */
+.post-card {
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  margin-right: 10px;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-footer {
+  padding: 12px;
+}
+
+.icons {
+  margin-bottom: 8px;
+  font-size: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.caption {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.username {
+  font-weight: 600;
+  margin-right: 8px;
+}
