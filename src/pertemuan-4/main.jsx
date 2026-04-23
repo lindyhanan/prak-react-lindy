@@ -7,6 +7,6 @@ import CourseGuest from './pertemuan-4/components/CourseGuest.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CourseAdmin />
+    <CourseGuest />
   </StrictMode>,
 )

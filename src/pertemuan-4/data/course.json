@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "title": "React Basics",
+    "category": "Programming",
+    "level": "Beginner",
+    "price": 100000,
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500&q=80",
+    "details": {
+      "instructor": "John Doe",
+      "duration": "8 hours",
+      "rating": 4.5
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 1200
+    }
+  },
+  {
+    "id": 2,
+    "title": "Advanced React",
+    "category": "Programming",
+    "level": "Advanced",
+    "price": 200000,
+    "image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&q=80",
+    "details": {
+      "instructor": "Jane Smith",
+      "duration": "12 hours",
+      "rating": 4.8
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 900
+    }
+  },
+  {
+    "id": 3,
+    "title": "Python for Data Science",
+    "category": "Programming",
+    "level": "Intermediate",
+    "price": 150000,
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80",
+    "details": {
+      "instructor": "Alice Johnson",
+      "duration": "15 hours",
+      "rating": 4.7
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 2500
+    }
+  },
+  {
+    "id": 4,
+    "title": "UI/UX Design Principles",
+    "category": "Design",
+    "level": "Beginner",
+    "price": 120000,
+    "image": "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?w=500&q=80",
+    "details": {
+      "instructor": "Bob Brown",
+      "duration": "6 hours",
+      "rating": 4.4
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 1800
+    }
+  },
+  {
+    "id": 5,
+    "title": "Digital Marketing Strategy",
+    "category": "Marketing",
+    "level": "Intermediate",
+    "price": 180000,
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80",
+    "details": {
+      "instructor": "Charlie Davis",
+      "duration": "10 hours",
+      "rating": 4.6
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 3200
+    }
+  },
+  {
+    "id": 6,
+    "title": "Node.js Backend Development",
+    "category": "Programming",
+    "level": "Advanced",
+    "price": 250000,
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&q=80",
+    "details": {
+      "instructor": "Diana Evans",
+      "duration": "20 hours",
+      "rating": 4.9
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 750
+    }
+  },
+  {
+    "id": 7,
+    "title": "Graphic Design with Illustrator",
+    "category": "Design",
+    "level": "Beginner",
+    "price": 110000,
+    "image": "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&q=80",
+    "details": {
+      "instructor": "Edward Frank",
+      "duration": "9 hours",
+      "rating": 4.3
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 2100
+    }
+  },
+  {
+    "id": 8,
+    "title": "Financial Literacy 101",
+    "category": "Business",
+    "level": "Beginner",
+    "price": 80000,
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80",
+    "details": {
+      "instructor": "Fiona Green",
+      "duration": "5 hours",
+      "rating": 4.5
+    },
+    "meta": {
+      "language": "English",
+      "certificate": false,
+      "students": 4500
+    }
+  },
+  {
+    "id": 9,
+    "title": "Machine Learning Fundamentals",
+    "category": "Programming",
+    "level": "Advanced",
+    "price": 300000,
+    "image": "https://images.unsplash.com/photo-1555255707-c079664889ec?w=500&q=80",
+    "details": {
+      "instructor": "George Harris",
+      "duration": "25 hours",
+      "rating": 4.8
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 500
+    }
+  },
+  {
+    "id": 10,
+    "title": "Photography Masterclass",
+    "category": "Art",
+    "level": "Intermediate",
+    "price": 160000,
+    "image": "https://images.unsplash.com/photo-1452784444945-3f422708fe5e?w=500&q=80",
+    "details": {
+      "instructor": "Hannah Ivy",
+      "duration": "14 hours",
+      "rating": 4.7
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 1300
+    }
+  },
+  {
+    "id": 11,
+    "title": "Project Management Pro",
+    "category": "Business",
+    "level": "Intermediate",
+    "price": 190000,
+    "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&q=80",
+    "details": {
+      "instructor": "Ian Jack",
+      "duration": "18 hours",
+      "rating": 4.6
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 950
+    }
+  },
+  {
+    "id": 12,
+    "title": "CSS Layouts Deep Dive",
+    "category": "Programming",
+    "level": "Intermediate",
+    "price": 130000,
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=500&q=80",
+    "details": {
+      "instructor": "Julia King",
+      "duration": "7 hours",
+      "rating": 4.4
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 2800
+    }
+  },
+  {
+    "id": 13,
+    "title": "Public Speaking Mastery",
+    "category": "Soft Skills",
+    "level": "Beginner",
+    "price": 90000,
+    "image": "https://images.unsplash.com/photo-1475721027785-f74dea327912?w=500&q=80",
+    "details": {
+      "instructor": "Kevin Lee",
+      "duration": "4 hours",
+      "rating": 4.8
+    },
+    "meta": {
+      "language": "English",
+      "certificate": false,
+      "students": 3800
+    }
+  },
+  {
+    "id": 14,
+    "title": "Cloud Computing with AWS",
+    "category": "Programming",
+    "level": "Advanced",
+    "price": 350000,
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80",
+    "details": {
+      "instructor": "Liam Miller",
+      "duration": "30 hours",
+      "rating": 4.9
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 400
+    }
+  },
+  {
+    "id": 15,
+    "title": "Intro to Video Editing",
+    "category": "Art",
+    "level": "Beginner",
+    "price": 125000,
+    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=500&q=80",
+    "details": {
+      "instructor": "Mia Nelson",
+      "duration": "11 hours",
+      "rating": 4.5
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 1600
+    }
+  },
+  {
+    "id": 16,
+    "title": "Content Writing Strategies",
+    "category": "Marketing",
+    "level": "Beginner",
+    "price": 95000,
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=500&q=80",
+    "details": {
+      "instructor": "Noah Owens",
+      "duration": "6 hours",
+      "rating": 4.3
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 2400
+    }
+  },
+  {
+    "id": 17,
+    "title": "Java Programming OOP",
+    "category": "Programming",
+    "level": "Intermediate",
+    "price": 170000,
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80",
+    "details": {
+      "instructor": "Olivia Parker",
+      "duration": "16 hours",
+      "rating": 4.6
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 1100
+    }
+  },
+  {
+    "id": 18,
+    "title": "Effective Leadership",
+    "category": "Business",
+    "level": "Advanced",
+    "price": 220000,
+    "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&q=80",
+    "details": {
+      "instructor": "Peter Quinn",
+      "duration": "12 hours",
+      "rating": 4.7
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 600
+    }
+  },
+  {
+    "id": 19,
+    "title": "SEO Fundamentals",
+    "category": "Marketing",
+    "level": "Intermediate",
+    "price": 140000,
+    "image": "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?w=500&q=80",
+    "details": {
+      "instructor": "Quinn Ross",
+      "duration": "8 hours",
+      "rating": 4.5
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 1900
+    }
+  },
+  {
+    "id": 20,
+    "title": "Data Visualization with Tableau",
+    "category": "Programming",
+    "level": "Intermediate",
+    "price": 185000,
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80",
+    "details": {
+      "instructor": "Rachel Scott",
+      "duration": "10 hours",
+      "rating": 4.8
+    },
+    "meta": {
+      "language": "English",
+      "certificate": true,
+      "students": 850
+    }
+  }
+]
