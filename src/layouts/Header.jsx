@@ -1,9 +1,14 @@
-import { FiSearch, FiBell, FiMessageSquare, FiGift, FiSettings } from "react-icons/fi";
+import {
+  FiSearch,
+  FiBell,
+  FiMessageSquare,
+  FiGift,
+  FiSettings,
+} from "react-icons/fi";
 
 export default function Header() {
   return (
     <div className="flex items-center justify-between bg-white px-6 py-4 shadow-sm">
-
       {/* SEARCH */}
       <div className="relative w-1/3">
         <input
@@ -16,10 +21,8 @@ export default function Header() {
 
       {/* RIGHT SIDE */}
       <div className="flex items-center gap-4">
-
         {/* ICONS */}
         <div className="flex items-center gap-3">
-
           {/* Bell */}
           <div className="relative">
             <div className="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-lg">
@@ -59,20 +62,18 @@ export default function Header() {
               19
             </span>
           </div>
-
         </div>
 
         {/* USER */}
         <div className="flex items-center gap-2 ml-4">
           <span className="text-sm text-gray-600">
-            Hello, <b>Bang Oriee</b>
+            Hello, <b>Bang Orieee</b>
           </span>
           <img
-            // src="https://i.pravatar.cc/40"
+            src="https://i.pravatar.cc/40"
             className="w-9 h-9 rounded-full"
           />
         </div>
-
       </div>
     </div>
   );

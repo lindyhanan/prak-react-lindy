@@ -1,63 +1,67 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import NotFound from "./pages/NotFound";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Sidebar from "./layouts/Sidebar";
+import Header from "./layouts/Header";
+import Customer from "./pages/Customer";
+import Orders from "./pages/Orders";
+import Error400 from "./pages/Error400";
+import Error401 from "./pages/Error401";
+import Error403 from "./pages/Error403";
+import { useLocation } from "react-router-dom";
 
-// Komponen Kecil untuk Postingan
-function Post({ user, image, caption }) {
-  return (
-    <div className="post-card">
-      <div className="post-header">
-        <div className="avatar"></div>
-        <span className="username">{user}</span>
-      </div>
-      
-      <img src={image} alt="content" className="post-image" />
-      
-      <div className="post-footer">
-        <div className="icons">
-          <span>❤️</span>
-          <span>💬</span>
-          <span>✈️</span>
-        </div>
-        <div className="caption">
-          <span className="username">{user}</span>
-          {caption}
-        </div>
-      </div>
-    </div>
-  );
+function Explore() {
+  return <h1>Halaman Explore 🔍</h1>;
+}
+
+function Profile() {
+  return <h1>Halaman Profile 👤</h1>;
+}
+
+function OrderDetail() {
+  return <h1>Halaman Detail 📄</h1>;
 }
 
 // Komponen Utama
 function App() {
-  // Data simulasi (nanti ini bisa diambil dari database/API)
-  const dataPostingan = [
-    { id: 1, user: 'coding_pemula', img: 'https://picsum.photos/500/500?random=1', text: 'Hari pertama belajar React! 🚀' },
-    { id: 2, user: 'developer_pro', img: 'https://picsum.photos/500/500?random=2', text: 'Jangan lupa minum kopi saat ngoding. ☕' },
-    { id: 3, user: 'react_id', img: 'https://picsum.photos/500/500?random=3', text: 'Komponen React itu sangat fleksibel.' }
+  const location = useLocation();
+
+  const hideLayoutRoutes = [
+    "/error400",
+    "/error401",
+    "/error403"
   ];
 
+  const hideLayout = hideLayoutRoutes.includes(location.pathname);
   return (
-    <div className="App">
-      {/* Bagian Atas */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <div className="logo">Instagram</div>
-          <input type="text" placeholder="Cari..." style={{borderRadius: '8px', border: '1px solid #dbdbdb', padding: '5px'}} />
-          <div>🏠 📩 🧭 ❤️</div>
-        </div>
-      </nav>
+    <div className="flex min-h-screen bg-gray-100">
+      {/* Sidebar */}
+      <Sidebar />
 
-      {/* Bagian Feed Postingan */}
-      <main className="feed-container">
-        {dataPostingan.map((item) => (
-          <Post 
-            key={item.id} 
-            user={item.user} 
-            image={item.img} 
-            caption={item.text} 
-          />
-        ))}
-      </main>
+      {/* Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Header */}
+        <Header />
+
+        {/* Pages */}
+        <div className="App p-6">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/detail" element={<OrderDetail />} />
+            <Route path="/customer" element={<Customer />} />
+            <Route path="/error400" element={<Error400 />} />
+            <Route path="/error401" element={<Error401 />} />
+            <Route path="/error403" element={<Error403 />} />
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
