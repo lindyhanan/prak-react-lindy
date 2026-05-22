@@ -72,7 +72,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <div>
-                <h2 className="text-xl font-bold">357</h2>
+                <h2 className="text-xl font-bold">397</h2>
                 <p className="text-sm text-gray-500">Total Delivered</p>
                 <span className="text-xs text-green-500">▲ 4% (30 days)</span>
               </div>
