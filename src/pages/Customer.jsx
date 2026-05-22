@@ -10,35 +10,24 @@ export default function Customer() {
     <div>
 
       {/* HEADER */}
-      <PageHeader
-        title="Customers"
-        breadcrumb="Dashboard / Customers"
-      >
-        <button
-          onClick={() => setShowForm(true)}
-          className="rounded-lg bg-green-500 px-4 py-2 text-white"
-        >
+      <PageHeader title="Customers" breadcrumb="Dashboard / Customers">
+        <button onClick={() => setShowForm(true)} className="rounded-lg bg-green-500 px-4 py-2 text-white" >
           Add Customer
         </button>
       </PageHeader>
 
       {/* FORM */}
       {showForm && (
-
         <div className="mb-6 rounded-xl bg-white p-6 shadow">
-
           <h2 className="mb-4 text-xl font-bold">
             Add Customer
           </h2>
-
           <div className="grid gap-4">
-
             <input
               type="text"
               placeholder="Customer ID"
               className="rounded-lg border p-3"
             />
-
             <input
               type="text"
               placeholder="Customer Name"

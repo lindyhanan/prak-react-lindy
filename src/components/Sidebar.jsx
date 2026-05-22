@@ -38,6 +38,12 @@ export default function Sidebar() {
             Order List
           </NavLink>
         </li>
+        <li>
+          <NavLink id="menu-2" to="/products" className={menuClass}>
+            <FiList className="mr-4 text-xl" />
+            Products 
+          </NavLink>
+        </li>
 
         {/* <li>
           <NavLink id="menu-3" to="/detail" className={menuClass}>
