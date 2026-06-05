@@ -1,3 +1,4 @@
+import { AiFillAppstore } from "react-icons/ai"; 
 import { FiHome, FiList, FiFileText, FiUser } from "react-icons/fi";
 import { MdSpaceDashboard } from "react-icons/md";
 import { NavLink } from "react-router-dom";
@@ -65,7 +66,7 @@ export default function Sidebar() {
         </li>
         <li>
           <NavLink id="menu-4" to="/fitur-xyz" className={menuClass}>
-            <AiFillCodepenSquare className="mr-4 text-xl" />
+            <AiFillAppstore className="mr-4 text-xl" />
             Fitur XYZ
           </NavLink>
         </li>
