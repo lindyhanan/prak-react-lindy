@@ -98,7 +98,7 @@ export default function Sidebar() {
           </p>
 
           <button className="bg-white text-green-600 px-4 py-2 rounded-lg text-sm font-medium">
-            + Add Menus
+            + Tambah Menu
           </button>
         </div>
 
