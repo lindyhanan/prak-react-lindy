@@ -8,7 +8,7 @@ const headers = {
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "application/json",
 }
-
+// asasa
 export const notesAPI = {
     async fetchNotes() {
         const response = await axios.get(API_URL, { headers })
