@@ -71,6 +71,12 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li>
+          <NavLink id="menu-4" to="/note" className={menuClass}>
+            <AiFillAppstore className="mr-4 text-xl" />
+            Note
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/error400" className={menuClass}>
             Error 400
           </NavLink>

@@ -22,7 +22,7 @@ const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
-
+const Note = React.lazy(() => import("./pages/Note"));
 function Explore() {
   return <h1>Halaman Explore 🔍</h1>;
 }
@@ -50,6 +50,7 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/fitur-xyz" element={<FiturXYZ />} />
+          <Route path="/note" element={<Note />} />
           <Route path="/components" element={<Components />} />
           <Route path="/error400" element={<Error400 />} />
           <Route path="/error401" element={<Error401 />} />
