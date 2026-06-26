@@ -113,6 +113,29 @@ export default function Orders() {
     setError("");
 
     try {
+      // 0. Pastikan profile user ada (untuk foreign key)
+      const { data: existingProfile } = await supabase
+        .from("profiles")
+        .select("id")
+        .eq("id", user.id)
+        .maybeSingle();
+
+      if (!existingProfile) {
+        // Buat profile otomatis jika belum ada
+        const { error: profileError } = await supabase
+          .from("profiles")
+          .insert([{
+            id: user.id,
+            email: user.email,
+            full_name: user.user_metadata?.full_name || "User",
+            role: "member",
+            tier: "Bronze",
+            points: 0,
+          }]);
+
+        if (profileError) throw profileError;
+      }
+
       // 1. Insert order
       const { data: orderData, error: orderError } = await supabase
         .from("orders")
