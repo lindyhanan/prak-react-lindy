@@ -1,11 +1,12 @@
-import axios from "axios";
 import { useState } from "react";
 import { BsFillExclamationDiamondFill } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [dataForm, setDataForm] = useState({
@@ -20,37 +21,21 @@ export default function Login() {
       [name]: value,
     });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setLoading(true);
-    setError(false);
+    setError("");
 
-    axios
-      .post("https://dummyjson.com/user/login", {
-        username: dataForm.email,
-        password: dataForm.password,
-      })
-      .then((response) => {
-        // Jika status bukan 200, tampilkan pesan error
-        if (response.status !== 200) {
-          setError(response.data.message);
-          return;
-        }
-
-        // Redirect ke dashboard jika login sukses
-        navigate("/");
-      })
-      .catch((err) => {
-        if (err.response) {
-          setError(err.response.data.message || "An error occurred");
-        } else {
-          setError(err.message || "An unknown error occurred");
-        }
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    try {
+      await login(dataForm.email, dataForm.password);
+      navigate("/");
+    } catch (err) {
+      setError(err.message || "Login gagal. Periksa email dan password Anda.");
+    } finally {
+      setLoading(false);
+    }
   };
   /* error & loading status */
   const errorInfo = error ? (
@@ -76,7 +61,7 @@ export default function Login() {
 
       {loadingInfo}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <div className="mb-5">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Email Address
@@ -86,6 +71,7 @@ export default function Login() {
             onChange={handleChange}
             type="text"
             id="email"
+            autoComplete="off"
             className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm
                             placeholder-gray-400"
             placeholder="you@example.com"
@@ -100,6 +86,7 @@ export default function Login() {
             onChange={handleChange}
             type="password"
             id="password"
+            autoComplete="new-password"
             className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm
                             placeholder-gray-400"
             placeholder="********"
@@ -112,6 +99,21 @@ export default function Login() {
         >
           Login
         </button>
+
+        <div className="flex items-center justify-between mt-4 text-sm">
+          <Link
+            to="/forgot"
+            className="text-green-500 hover:text-green-600 hover:underline"
+          >
+            Lupa Password?
+          </Link>
+          <Link
+            to="/register"
+            className="text-green-500 hover:text-green-600 hover:underline"
+          >
+            Daftar Akun
+          </Link>
+        </div>
       </form>
     </div>
   );

@@ -1,43 +1,96 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import { supabase } from "../lib/supabaseClient"
 
 export default function ProductDetail() {
     const { id } = useParams()
     const [product, setProduct] = useState(null)
+    const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        axios
-            .get(`https://dummyjson.com/products/${id}`)
-            .then((response) => {
-                if (response.status !== 200) {
-                    setError(response.message)
-                    return
-                }
-                setProduct(response.data)
-            })
-            .catch((err) => {
+        const loadProduct = async () => {
+            try {
+                setLoading(true)
+                const { data, error } = await supabase
+                    .from("products")
+                    .select("*")
+                    .eq("id", id)
+                    .single()
+
+                if (error) throw error
+                setProduct(data)
+            } catch (err) {
                 setError(err.message)
-            })
+            } finally {
+                setLoading(false)
+            }
+        }
+        loadProduct()
     }, [id])
 
-    if (error) return <div className="text-red-600 p-4">{error}</div>
-    if (!product) return <div className="p-4">Loading...</div>
+    if (loading) return (
+        <div className="flex items-center justify-center p-12">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600"></div>
+        </div>
+    )
+
+    if (error) return (
+        <div className="text-center p-12">
+            <p className="text-red-600 mb-4">{error}</p>
+            <Link to="/products" className="text-emerald-500 hover:underline">
+                Kembali ke Products
+            </Link>
+        </div>
+    )
+
+    if (!product) return (
+        <div className="text-center p-12">
+            <p className="text-gray-500 mb-4">Produk tidak ditemukan</p>
+            <Link to="/products" className="text-emerald-500 hover:underline">
+                Kembali ke Products
+            </Link>
+        </div>
+    )
 
     return (
-        <div className="p-6 bg-white rounded-xl shadow-lg max-w-lg mx-auto mt-6">
-            <img
-                src={product.thumbnail}
-                alt={product.title}
-                className="rounded-xl mb-4 w-full h-48 object-cover"
-            />
-            <h2 className="text-2xl font-bold mb-2">{product.title}</h2>
-            <p className="text-gray-600 mb-1">Kategori: {product.category}</p>
-            <p className="text-gray-600 mb-1">Brand: {product.brand}</p>
-            <p className="text-gray-800 font-semibold text-lg">
-                Harga: Rp {product.price * 1000}
-            </p>
+        <div className="max-w-2xl mx-auto mt-6">
+            <Link
+                to="/products"
+                className="text-sm text-gray-500 hover:text-emerald-500 mb-4 inline-block"
+            >
+                ← Kembali ke Products
+            </Link>
+
+            <div className="bg-white rounded-xl shadow-lg p-6">
+                <h2 className="text-3xl font-bold mb-4 text-gray-800">
+                    {product.name}
+                </h2>
+
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                        <p className="text-sm text-gray-500">Price</p>
+                        <p className="text-2xl font-bold text-emerald-600">
+                            Rp {Number(product.price).toLocaleString("id-ID")}
+                        </p>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                        <p className="text-sm text-gray-500">Stock</p>
+                        <p className="text-2xl font-bold text-gray-700">
+                            {product.stock}
+                        </p>
+                    </div>
+                </div>
+
+                {product.description && (
+                    <div className="mb-4">
+                        <h3 className="font-semibold text-gray-700 mb-2">
+                            Description
+                        </h3>
+                        <p className="text-gray-600">{product.description}</p>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

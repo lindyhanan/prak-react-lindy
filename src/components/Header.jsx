@@ -4,9 +4,24 @@ import {
   FiMessageSquare,
   FiGift,
   FiSettings,
+  FiLogOut,
 } from "react-icons/fi";
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const { user, profile, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout gagal:", err.message);
+    }
+  };
+
   return (
     <div className="flex items-center justify-between bg-white px-6 py-4 shadow-sm">
       {/* SEARCH */}
@@ -65,14 +80,27 @@ export default function Header() {
         </div>
 
         {/* USER */}
-        <div className="flex items-center gap-2 ml-4">
-          <span className="text-sm text-gray-600">
-            Hello, <b>Lindy</b>
-          </span>
+        <div className="flex items-center gap-3 ml-4">
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-600">
+              Hello, <b>{profile?.full_name || user?.email?.split('@')[0] || "User"}</b>
+            </span>
+            <span className="text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded-full">
+              {profile?.role || "member"}
+            </span>
+          </div>
           <img
-            src="https://i.pravatar.cc/40"
+            src={`https://ui-avatars.com/api/?name=${profile?.full_name || "User"}&background=00B074&color=fff`}
             className="w-9 h-9 rounded-full"
+            alt="avatar"
           />
+          <button
+            onClick={handleLogout}
+            className="p-2 hover:bg-red-50 rounded-lg text-gray-500 hover:text-red-500 transition-colors"
+            title="Logout"
+          >
+            <FiLogOut size={18} />
+          </button>
         </div>
       </div>
     </div>
